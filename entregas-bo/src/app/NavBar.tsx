@@ -13,7 +13,7 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="bg-white  outline outline-blue-600 ">
+      <nav className="bg-white  outline outline-primary">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -28,40 +28,40 @@ export default function NavBar() {
                 <Link
                   href="/"
                   className={`${
-                    pathname === "/" ? "bg-black text-white" : "text-black"
-                  } hover:bg-black hover:text-white rounded-lg p-2`}
+                    pathname === "/" ? "bg-primary text-white" : "text-black"
+                  } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Home
                 </Link>
                 <Link
-                  href="/about"
+                  href="/productos"
                   className={`${
-                    pathname === "/about" ? "bg-black text-white" : "text-black"
-                  } hover:bg-black hover:text-white rounded-lg p-2`}
+                    pathname === "/productos" ? "bg-primary text-white" : "text-black"
+                  } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Productos
                 </Link>
                 <Link
-                  href="/services"
+                  href="/blog"
                   className={`${
-                    pathname === "/services" ? "bg-black text-white" : "text-black"
-                  } hover:bg-black hover:text-white rounded-lg p-2`}
+                    pathname === "/blog" ? "bg-primary text-white" : "text-black"
+                  } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Blog
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/faq"
                   className={`${
-                    pathname === "/contact" ? "bg-black text-white" : "text-black"
-                  } hover:bg-black hover:text-white rounded-lg p-2`}
+                    pathname === "/faq" ? "bg-primary text-white" : "text-black"
+                  } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Preguntas Frecuentes
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/contactanos"
                   className={`${
-                    pathname === "/contact" ? "bg-black text-white" : "text-black"
-                  } hover:bg-black hover:text-white rounded-lg p-2`}
+                    pathname === "/contactanos" ? "bg-primary text-white" : "text-black"
+                  } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Contactanos
                 </Link>
@@ -69,7 +69,7 @@ export default function NavBar() {
             </div>
             <div className="md:hidden flex items-center">
               <button
-                className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black"
+                className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
                 onClick={toggleNavbar}
               >
                 {isClick ? (
@@ -113,40 +113,40 @@ export default function NavBar() {
             <Link
                   href="/"
                   className={`${
-                    pathname === "/" ? "bg-black text-white" : "text-black"
-                  } hover:bg-black block hover:text-white rounded-lg p-2`}
+                    pathname === "/" ? "bg-primary text-white" : "text-black"
+                  } hover:bg-primary block hover:text-white rounded-lg p-2`}
                 >
                   Home
                 </Link>
                 <Link
-                  href="/about"
+                  href="/productos"
                   className={`${
-                    pathname === "/about" ? "bg-black text-white" : "text-black"
-                  } hover:bg-black block hover:text-white rounded-lg p-2`}
+                    pathname === "/productos" ? "bg-primary text-white" : "text-black"
+                  } hover:bg-primary block hover:text-white rounded-lg p-2`}
                 >
                   Productos
                 </Link>
                 <Link
-                  href="/services"
+                  href="/blog"
                   className={`${
-                    pathname === "/services" ? "bg-black text-white" : "text-black"
-                  } hover:bg-black block hover:text-white rounded-lg p-2`}
+                    pathname === "/blog" ? "bg-primary text-white" : "text-black"
+                  } hover:bg-primary block hover:text-white rounded-lg p-2`}
                 >
                   Blog
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/faq"
                   className={`${
-                    pathname === "/contact" ? "bg-black text-white" : "text-black"
-                  } hover:bg-black block hover:text-white rounded-lg p-2`}
+                    pathname === "/faq" ? "bg-primary text-white" : "text-black"
+                  } hover:bg-primary block hover:text-white rounded-lg p-2`}
                 >
                   Preguntas Frecuentes
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/contactanos"
                   className={`${
-                    pathname === "/contact" ? "bg-black text-white" : "text-black"
-                  } hover:bg-black block hover:text-white rounded-lg p-2`}
+                    pathname === "/contactanos" ? "bg-primary text-white" : "text-black"
+                  } hover:bg-primary block hover:text-white rounded-lg p-2`}
                 >
                   Contactanos
                 </Link>
