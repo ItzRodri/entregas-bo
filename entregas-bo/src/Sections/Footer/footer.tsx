@@ -1,4 +1,4 @@
-import FooterMain from "@/components/Footer/Footer";
+import FooterMain from "@/components/footer";
 
 const FooterSection = () => {
   return <FooterMain />;

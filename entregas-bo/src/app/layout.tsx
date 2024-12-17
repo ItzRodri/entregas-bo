@@ -5,6 +5,7 @@ import "./globals.css";
 
 
 import NavBar from "./NavBar";
+import Footer from "@/components/footer";
 import React, { ReactNode } from "react";
 export const metadata = {
   title: "My App",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body>
         <NavBar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
