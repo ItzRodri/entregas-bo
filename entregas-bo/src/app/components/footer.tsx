@@ -172,15 +172,15 @@ const Footer = () => {
 
       {/* Métodos de Pago */}
       <div className="container mx-auto px-8 flex flex-row items-start gap-8">
-        <Image src="/paypal.svg" alt="PayPal" width={40} height={24} />
+        <Image src="/paypal.svg" alt="PayPal" width={40} height={40} />
         <Image
           src="/americanexpress.svg"
           alt="American Express"
           width={40}
           height={24}
         />
-        <Image src="/visa.svg" alt="Visa" width={40} height={24} />
-        <Image src="/mastercard.svg" alt="Mastercard" width={40} height={24} />
+        <Image src="/visa.svg" alt="Visa" width={40} height={40} />
+        <Image src="/mastercard.svg" alt="Mastercard" width={40} height={40} />
       </div>
 
       {/* Parte Inferior */}
