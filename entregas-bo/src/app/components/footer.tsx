@@ -21,7 +21,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0C1D3E] text-white py-10 px-20 font-inter">
+    <footer className="bg-[#0C1D3E] text-white py-10 px-4 md:px-20 font-inter">
       {/* Contenedor Principal */}
       <div className="container mx-auto px-8 flex flex-row items-start gap-8">
         {/* ContactInfo */}
@@ -171,7 +171,7 @@ const Footer = () => {
       </div>
 
       {/* Métodos de Pago */}
-      <div className="flex justify-start space-x-4 mt-8 px-8">
+      <div className="container mx-auto px-8 flex flex-row items-start gap-8">
         <Image src="/paypal.svg" alt="PayPal" width={40} height={24} />
         <Image
           src="/americanexpress.svg"
@@ -184,7 +184,7 @@ const Footer = () => {
       </div>
 
       {/* Parte Inferior */}
-      <div className="mt-8 pt-4 px-8 text-sm flex justify-between ">
+      <div className="container mx-auto px-8 flex flex-row items-start gap-8 justify-between mt-10 ">
         <p>&copy; {new Date().getFullYear()} Tech Heim.</p>
         <div className="space-x-4">
           <a href="#" className="hover:underline">

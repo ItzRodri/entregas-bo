@@ -36,7 +36,7 @@ export default function NavBar() {
                 <Link
                   href="/productos"
                   className={`${
-                    pathname === "/Sections/NewProducts/" ? "bg-primary text-white" : "text-black"
+                    pathname === "/productos" ? "bg-primary text-white" : "text-black"
                   } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Productos

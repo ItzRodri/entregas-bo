@@ -5,7 +5,7 @@ import "./globals.css";
 
 
 import NavBar from "./NavBar";
-import Footer from "@/components/footer";
+import Footer from "@/app/components/footer";
 import React, { ReactNode } from "react";
 export const metadata = {
   title: "My App",
