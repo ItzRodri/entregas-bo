@@ -65,10 +65,10 @@ export default function Carousel() {
         <div className="slider-controler">
           <div className="swiper-button-prev slider-arrow">
            
-           <button>hola</button>
+          
           </div>
           <div className="swiper-button-next slider-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
+          <button>hola</button>
           </div>
           <div className="swiper-pagination"></div>
         </div>

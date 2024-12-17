@@ -34,7 +34,7 @@ export default function NavBar() {
                   Home
                 </Link>
                 <Link
-                  href="/Sections/NewProducts/"
+                  href="/productos"
                   className={`${
                     pathname === "/Sections/NewProducts/" ? "bg-primary text-white" : "text-black"
                   } hover:bg-primary hover:text-white rounded-lg p-2`}
