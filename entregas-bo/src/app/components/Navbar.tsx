@@ -36,7 +36,7 @@ export default function NavBar() {
                 <Link
                   href="/Sections/NewProducts/"
                   className={`${
-                    pathname === "/Sections/NewProducts/" ? "bg-primary text-white" : "text-black"
+                    pathname === "/Sections/NewProducts" ? "bg-primary text-white" : "text-black"
                   } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Productos
@@ -64,6 +64,14 @@ export default function NavBar() {
                   } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Contactanos
+                </Link>
+                <Link
+                  href="/Sections/Login/"
+                  className={`${
+                    pathname === "/Sections/Login" ? "bg-primary text-white" : "text-black"
+                  } hover:bg-primary hover:text-white rounded-lg p-2`}
+                >
+                  Logeate/Registrate
                 </Link>
               </div>
             </div>

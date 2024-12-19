@@ -40,7 +40,7 @@ const Blogs: React.FC = () => {
           <div>
             <h2 className="text-3xl font-bold leading-tight text-gray-900">
               Nuestros
-              <br />
+             
               Blogs
             </h2>
           </div>

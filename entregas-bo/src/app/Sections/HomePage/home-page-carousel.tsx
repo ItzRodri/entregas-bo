@@ -1,11 +1,12 @@
-import React from 'react';
-import Slider from 'react-slick';
+import dynamic from 'next/dynamic';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+const Slider = dynamic(() => import('react-slick'), { ssr: false });
+
 const carouselItems = [
   {
-    type: "Cuaderno",
+    type: "Medio Oficio Araña",
     options: [
       { hojas: 50, tapa: "Tapa Blanda", mayorista: 5, individual: 10, personalizado: 15 },
       { hojas: 100, tapa: "Tapa Blanda", mayorista: 10, individual: 15, personalizado: 20 },
