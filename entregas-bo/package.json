@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.0",
+    "lottie-web": "^5.12.2",
     "next": "15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-lottie-player": "^2.1.0",
     "swiper": "^11.1.15"
   },
   "devDependencies": {
