@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const HeroBannerPrimary: React.FC = () => {
   return (
-    <div className="container mx-auto w-full px-4 md:px-10 py-6 relative flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#1E2D3D] to-[#FF6B5E] text-white rounded-lg p-6 md:p-12 overflow-hidden">
+    <div className="container mx-auto max-w-screen-xl w-full px-4 md:px-10 py-6 relative flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#1E2D3D] to-[#FF6B5E] text-white rounded-lg p-6 md:p-12 overflow-hidden">
       {/* Contenido de Texto */}
       <div className="z-10 space-y-4 md:space-y-6 transform translate-x-[-50px] opacity-0 animate-fade-in-left duration-700 delay-200">
         <h1 className="text-3xl md:text-5xl font-bold">RELOJ INTELIGENTE</h1>
