@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const ServicePage = () => {
+export default function ServicePage () {
   return (
     <div className="container mx-auto w-full px-4 md:px-10 py-6 bg-white">
       {/* Contenedor principal */}
@@ -9,7 +9,7 @@ const ServicePage = () => {
         <div className="flex items-center space-x-3 text-center">
           <img src="/computer.svg" alt="Tecnología" className="w-12 h-12" />
           <p className="text-sm md:text-base font-medium">
-            La tecnología más reciente y avanzada
+            Insumos de alta calidad y mejor precio
           </p>
         </div>
 
@@ -23,7 +23,7 @@ const ServicePage = () => {
         <div className="flex items-center space-x-3 text-center">
           <img src="/truck.svg" alt="Envío gratuito" className="w-12 h-12" />
           <p className="text-sm md:text-base font-medium">
-            Envío gratuito por encima de 100$
+            Envío gratuito por encima de bs.100
           </p>
         </div>
 
@@ -36,5 +36,3 @@ const ServicePage = () => {
     </div>
   );
 };
-
-export default ServicePage;

@@ -1,10 +1,9 @@
-
-import NavBar from "./NavBar";
-import Image from "next/image";
 import HomePageHeader from "./Sections/HomePage/home-page-header";
 import HomePageSponsors from "./Sections/HomePage/home-page-sponsors";
-import dynamic from 'next/dynamic';
 import ClientWrapper from "./Sections/HomePage/client-wrapper";
+import Blogs from "./Sections/HomePage/home-page-blogs";
+import ServicePage from "./Sections/HomePage/home-page-servicepage";
+import HeroBannerPrimary from "./Sections/Banners/banner-primary";
 
 
 export default function Home() {
@@ -12,7 +11,10 @@ export default function Home() {
     <>
       <HomePageHeader/>
       <ClientWrapper />
-     <HomePageSponsors/>
+      <HomePageSponsors/>
+      <HeroBannerPrimary/>
+      <Blogs/>
+      <ServicePage/>
     </>
   );
 }
