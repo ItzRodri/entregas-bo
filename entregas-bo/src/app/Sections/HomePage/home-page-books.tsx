@@ -78,7 +78,6 @@ const HomePageCarousel = () => {
         </div>
       ))}
     </Slider>
-
     </div>
     
   );

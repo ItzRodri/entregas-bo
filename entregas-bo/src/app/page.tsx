@@ -4,17 +4,14 @@ import ClientWrapper from "./Sections/HomePage/client-wrapper";
 import Blogs from "./Sections/HomePage/home-page-blogs";
 import ServicePage from "./Sections/HomePage/home-page-servicepage";
 import HeroBannerPrimary from "./Sections/Banners/banner-primary";
-import HeroBannerSecondary from "./Sections/Banners/banner-secondary";
-import HomePageCarousel from "./Sections/HomePage/home-page-books";
 
 export default function Home() {
   return (
     <>
       <HeroBannerPrimary/>
-      
       <ClientWrapper />
-      <HeroBannerSecondary />
       <HomePageSponsors/>
+      <HeroBannerPrimary/>
       <HeroBannerPrimary/>
       <Blogs/>
       <ServicePage/>
