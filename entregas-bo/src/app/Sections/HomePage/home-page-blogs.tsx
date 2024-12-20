@@ -32,7 +32,7 @@ const blogs = [
 
 const Blogs: React.FC = () => {
   return (
-    <section className="py-10 px-4 bg-white md:px-20">
+    <section className="py-10 px-4 bg-white md:px-10">
       <div className="container mx-auto">
         {/* Título */}
         <div className="flex justify-between items-center py-4 border-b border-gray-200">

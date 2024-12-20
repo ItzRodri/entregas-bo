@@ -1,8 +1,8 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React from "react";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from 'next/image';
+import Image from "next/image";
 
 const carouselItems = [
   {
@@ -19,34 +19,34 @@ const carouselItems = [
   {
     title: "Sección 2",
     images: [
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
     ],
   },
   {
     title: "Sección 3",
     images: [
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
     ],
   },
   {
     title: "Sección 4",
     images: [
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
-        "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
+      "/libros/Actividades-de-M1.png",
     ],
   },
 ];
@@ -61,25 +61,34 @@ const HomePageCarousel = () => {
   };
 
   return (
-    <div className='px-4 md:px-10 my-10'>
-         <h3 className="text-2xl font-bold mb-4">Productos Especiales</h3>
-         <hr />
-        <Slider {...settings}>
-      {carouselItems.map((section, index) => (
-        <div key={index} className='mb-10'>
-         
-          <div className="flex justify-center space-x-4">
-            {section.images.map((image, idx) => (
-              <div key={idx} className="w-auto  h-auto rounded-full items-center justify-center bg-imagecontainer   ">
-                <Image src={image} alt={`Image ${idx + 1}`} width={200} height={200} className='mx-4'/>
-              </div>
-            ))}
+    <div className="px-4 md:px-10 my-10">
+      <div className="container mx-auto">
+      <h3 className="text-2xl font-bold mb-4">Productos Especiales</h3>
+      <hr />
+      <Slider {...settings}>
+        {carouselItems.map((section, index) => (
+          <div key={index} className="mb-10">
+            <div className="flex justify-center space-x-4">
+              {section.images.map((image, idx) => (
+                <div
+                  key={idx}
+                  className="w-auto  h-auto rounded-full items-center justify-center bg-imagecontainer   "
+                >
+                  <Image
+                    src={image}
+                    alt={`Image ${idx + 1}`}
+                    width={200}
+                    height={200}
+                    className="mx-4"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
-    </Slider>
+        ))}
+      </Slider>
+      </div>
     </div>
-    
   );
 };
 
