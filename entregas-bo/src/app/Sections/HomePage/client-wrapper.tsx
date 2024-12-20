@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 
-const HomePageCarousel = dynamic(() => import('./home-page-carousel'), { ssr: false });
+const HomePageCarousel = dynamic(() => import('./home-page-books'), { ssr: false });
 
 const ClientWrapper = () => {
   return <HomePageCarousel />;
