@@ -3,13 +3,15 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-export default function NavBar() {
+
+const Navbar: React.FC = () => {
   const [isClick, setisClick] = useState(false);
   const toggleNavbar = () => {
     setisClick(!isClick);
   };
 
   const pathname = usePathname();
+  const isLoggedIn = 1;
 
   return (
     <>
@@ -18,8 +20,13 @@ export default function NavBar() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Link href="/" className="text-black">
-                <Image src="entregas-logo.svg" width={200} height={200} alt="hola"></Image>
+                <Link href="/">
+                  <Image
+                    src="/entregas-logo.svg"
+                    width={200}
+                    height={200}
+                    alt="hola"
+                  ></Image>
                 </Link>
               </div>
             </div>
@@ -36,7 +43,9 @@ export default function NavBar() {
                 <Link
                   href="/Sections/NewProducts/"
                   className={`${
-                    pathname === "/Sections/NewProducts" ? "bg-primary text-white" : "text-black"
+                    pathname === "/Sections/NewProducts"
+                      ? "bg-primary text-white"
+                      : "text-black"
                   } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Productos
@@ -44,7 +53,9 @@ export default function NavBar() {
                 <Link
                   href="/blog"
                   className={`${
-                    pathname === "/blog" ? "bg-primary text-white" : "text-black"
+                    pathname === "/blog"
+                      ? "bg-primary text-white"
+                      : "text-black"
                   } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Blog
@@ -60,18 +71,23 @@ export default function NavBar() {
                 <Link
                   href="/contactanos"
                   className={`${
-                    pathname === "/contactanos" ? "bg-primary text-white" : "text-black"
+                    pathname === "/contactanos"
+                      ? "bg-primary text-white"
+                      : "text-black"
                   } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Contactanos
                 </Link>
                 <Link
-                  href="/Sections/Login/"
+                  href={isLoggedIn ? "/Sections/Profile" : "/Sections/Login"}
                   className={`${
-                    pathname === "/Sections/Login" ? "bg-primary text-white" : "text-black"
+                    pathname ===
+                    (isLoggedIn ? "/Sections/Profile" : "/Sections/Login")
+                      ? "bg-primary text-white"
+                      : "text-black"
                   } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
-                  Logeate/Registrate
+                  {isLoggedIn ? "Profile" : "Logeate/Registrate"}
                 </Link>
               </div>
             </div>
@@ -118,46 +134,50 @@ export default function NavBar() {
         {isClick && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link
-                  href="/"
-                  className={`${
-                    pathname === "/" ? "bg-primary text-white" : "text-black"
-                  } hover:bg-primary block hover:text-white rounded-lg p-2`}
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/productos"
-                  className={`${
-                    pathname === "/productos" ? "bg-primary text-white" : "text-black"
-                  } hover:bg-primary block hover:text-white rounded-lg p-2`}
-                >
-                  Productos
-                </Link>
-                <Link
-                  href="/blog"
-                  className={`${
-                    pathname === "/blog" ? "bg-primary text-white" : "text-black"
-                  } hover:bg-primary block hover:text-white rounded-lg p-2`}
-                >
-                  Blog
-                </Link>
-                <Link
-                  href="/faq"
-                  className={`${
-                    pathname === "/faq" ? "bg-primary text-white" : "text-black"
-                  } hover:bg-primary block hover:text-white rounded-lg p-2`}
-                >
-                  Preguntas Frecuentes
-                </Link>
-                <Link
-                  href="/contactanos"
-                  className={`${
-                    pathname === "/contactanos" ? "bg-primary text-white" : "text-black"
-                  } hover:bg-primary block hover:text-white rounded-lg p-2`}
-                >
-                  Contactanos
-                </Link>
+              <Link
+                href="/"
+                className={`${
+                  pathname === "/" ? "bg-primary text-white" : "text-black"
+                } hover:bg-primary block hover:text-white rounded-lg p-2`}
+              >
+                Home
+              </Link>
+              <Link
+                href="/productos"
+                className={`${
+                  pathname === "/productos"
+                    ? "bg-primary text-white"
+                    : "text-black"
+                } hover:bg-primary block hover:text-white rounded-lg p-2`}
+              >
+                Productos
+              </Link>
+              <Link
+                href="/blog"
+                className={`${
+                  pathname === "/blog" ? "bg-primary text-white" : "text-black"
+                } hover:bg-primary block hover:text-white rounded-lg p-2`}
+              >
+                Blog
+              </Link>
+              <Link
+                href="/faq"
+                className={`${
+                  pathname === "/faq" ? "bg-primary text-white" : "text-black"
+                } hover:bg-primary block hover:text-white rounded-lg p-2`}
+              >
+                Preguntas Frecuentes
+              </Link>
+              <Link
+                href="/contactanos"
+                className={`${
+                  pathname === "/contactanos"
+                    ? "bg-primary text-white"
+                    : "text-black"
+                } hover:bg-primary block hover:text-white rounded-lg p-2`}
+              >
+                Contactanos
+              </Link>
             </div>
           </div>
         )}
@@ -165,3 +185,5 @@ export default function NavBar() {
     </>
   );
 }
+
+export default Navbar;

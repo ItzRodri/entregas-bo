@@ -1,4 +1,3 @@
-import HomePageHeader from "./Sections/HomePage/home-page-header";
 import HomePageSponsors from "./Sections/HomePage/home-page-sponsors";
 import ClientWrapper from "./Sections/HomePage/client-wrapper";
 import Blogs from "./Sections/HomePage/home-page-blogs";
