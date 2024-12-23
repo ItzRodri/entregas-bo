@@ -72,7 +72,7 @@ const HomePageCarousel = () => {
               {section.images.map((image, idx) => (
                 <div
                   key={idx}
-                  className="w-auto  h-auto rounded-full items-center justify-center bg-imagecontainer   "
+                  className="w-auto  h-auto rounded-full items-center justify-center    "
                 >
                   <Image
                     src={image}
