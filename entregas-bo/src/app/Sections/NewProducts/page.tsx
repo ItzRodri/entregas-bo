@@ -1,11 +1,12 @@
+import React from 'react';
 
-export default function AboutPage() {
-    return (
-      <div>
-        <h1 className="font-bold">About Page</h1>
-        <p>This is the About page content.</p>
-        
-      </div>
-    );
-  }
-  
+const NewProductsPage: React.FC = () => {
+  return (
+    <div>
+      <h1>HOLA MUNDO</h1>
+      {/* Aquí puedes agregar más contenido relacionado con nuevos productos */}
+    </div>
+  );
+};
+
+export default NewProductsPage;
