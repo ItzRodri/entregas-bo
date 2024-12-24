@@ -4,8 +4,8 @@ import "./globals.css";
 
 
 
-import NavBar from "@/app/components/Navbar";
-import Footer from "@/app/components/footer";
+import NavBar from "@/app/components/layout/Navbar";
+import Footer from "@/app/components/layout/footer";
 
 import React, { ReactNode } from "react";
 
@@ -20,9 +20,9 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex flex-col min-h-screen">
         <NavBar />
-        <main>{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>

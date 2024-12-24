@@ -33,3 +33,15 @@
 .animate-float {
   animation: float 3s infinite ease-in-out;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.filter-gray {
+  filter: invert(48%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(90%) contrast(90%);
+}

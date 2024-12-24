@@ -1,14 +1,15 @@
 "use client";
 import React, { useState } from 'react';
-import Sidebar from './profile-sidebar';
+import Sidebar from '../../components/layout/profile-sidebar';
+import PersonalData from './PersonalData/personaldata';
 
-const ProfilePage = () => {
+const ProfilePage: React.FC = () => {
   const [selectedSection, setSelectedSection] = useState('Datos Personales');
 
   const renderContent = () => {
     switch (selectedSection) {
       case 'Datos Personales':
-        return <div>Contenido de Datos Personales</div>;
+        return <PersonalData />;
       case 'Pago e Instalaciones':
         return <div>Contenido de Pago e Instalaciones</div>;
       case 'Pedidos':
@@ -26,14 +27,17 @@ const ProfilePage = () => {
       case 'Cerrar sesión':
         return <div>Contenido de Cerrar sesión</div>;
       default:
-        return <div>Selecciona una opción</div>;
+        return <PersonalData />;
     }
   };
 
   return (
-    <div className="flex px-44 py-12">
-      <Sidebar onSelect={setSelectedSection} />
-      <div className="profile-content p-4">
+    <div className="md:container md:mx-auto flex flex-col md:flex-row md:py-10 md:px-20 font-inter">
+      {/* Sidebar */}
+      <Sidebar onSelect={setSelectedSection} selectedSection={selectedSection} />
+      
+      {/* Main Content */}
+      <div className="flex-1 p-4">
         {renderContent()}
       </div>
     </div>

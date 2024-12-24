@@ -50,15 +50,15 @@ const Footer = () => {
           <div className="w-full md:w-auto">
             <h3 className="text-lg font-semibold mb-4">Contáctenos</h3>
             <div className="flex items-center space-x-2 mb-2">
-              <Image src="/map.svg" alt="Ubicación" width={20} height={20} />
+              <Image src="/icons/map.svg" alt="Ubicación" width={20} height={20} />
               <p className="text-sm">123 Main Street, Anytown, USA</p>
             </div>
             <div className="flex items-center space-x-2 mb-2">
-              <Image src="/phone.svg" alt="Teléfono" width={20} height={20} />
+              <Image src="/icons/phonecall.svg" alt="Teléfono" width={20} height={20} />
               <p className="text-sm">+1 (555) 123-4567</p>
             </div>
             <div className="flex items-center space-x-2">
-              <Image src="/mail.svg" alt="Correo" width={20} height={20} />
+              <Image src="/icons/mail.svg" alt="Correo" width={20} height={20} />
               <a href="mailto:TechHeimSoporte@gmail.com" className="hover:underline text-sm">TechHeimSoporte@gmail.com</a>
             </div>
           </div>
@@ -69,17 +69,17 @@ const Footer = () => {
             <div className="relative mb-4">
               <a href="/formulario" className="flex items-center justify-between border border-gray-300 rounded-md p-2 pl-3 pr-3 text-gray-300 hover:text-white hover:border-gray-100">
                 <div className="flex items-center space-x-2">
-                  <Image src="/user.svg" alt="User Icon" width={20} height={20}/>
+                  <Image src="/icons/user.svg" alt="User Icon" width={20} height={20}/>
                   <span className="text-gray-300">Email address</span>
                 </div>
-                <Image src="/arrowemail.svg" alt="Submit" width={20} height={20}/>
+                <Image src="/icons/arrowemail.svg" alt="Submit" width={20} height={20}/>
               </a>
             </div>
             <div className="flex space-x-4">
-              <a href="#"><Image src="/facebook.svg" alt="Facebook" width={24} height={24}/></a>
-              <a href="#"><Image src="/twitter.svg" alt="Twitter" width={24} height={24}/></a>
-              <a href="#"><Image src="/instagram.svg" alt="Instagram" width={24} height={24}/></a>
-              <a href="#"><Image src="/youtube.svg" alt="YouTube" width={24} height={24}/></a>
+              <a href="#"><Image src="/icons/facebook.svg" alt="Facebook" width={24} height={24}/></a>
+              <a href="#"><Image src="/icons/twitter.svg" alt="Twitter" width={24} height={24}/></a>
+              <a href="#"><Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24}/></a>
+              <a href="#"><Image src="/icons/youtube.svg" alt="YouTube" width={24} height={24}/></a>
             </div>
           </div>
         </div>
@@ -87,12 +87,12 @@ const Footer = () => {
         {/* Buttons */}
         <div className="fixed right-6 bottom-8 flex flex-col space-y-4 items-center z-50">
           {/* Botón de Chat */}
-          <a href="/contact" aria-label="Online chat"><Image src="/onlinechat.svg" alt="Chat" width={40} height={40} /></a>
+          <a href="/contact" aria-label="Online chat"><Image src="/icons/onlinechat.svg" alt="Chat" width={40} height={40} /></a>
 
           {/* Botón de Scroll al Top */}
           {showScrollTop && (
             <button onClick={scrollToTop} aria-label="Scroll to top">
-              <Image src="/arrowUp.svg" alt="Scroll to Top" width={40} height={40}/>
+              <Image src="/icons/arrowUp.svg" alt="Scroll to Top" width={40} height={40}/>
             </button>
           )}
         </div>
@@ -101,10 +101,10 @@ const Footer = () => {
 
       {/* Métodos de Pago */}
       <div className="container mx-auto px-8 flex flex-row items-start gap-8">
-        <Image src="/paypal.svg" alt="PayPal" width={40} height={40}/>
-        <Image src="/americanexpress.svg" alt="American Express" width={40} height={24}/>
-        <Image src="/visa.svg" alt="Visa" width={40} height={40}/>
-        <Image src="/mastercard.svg" alt="Mastercard" width={40} height={40}/>
+        <Image src="/icons/paypal.svg" alt="PayPal" width={40} height={40}/>
+        <Image src="/icons/americanexpress.svg" alt="American Express" width={40} height={24}/>
+        <Image src="/icons/visa.svg" alt="Visa" width={40} height={40}/>
+        <Image src="/icons/mastercard.svg" alt="Mastercard" width={40} height={40}/>
       </div>
 
       {/* Parte Inferior */}
