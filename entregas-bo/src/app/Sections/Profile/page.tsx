@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Sidebar from '../../components/layout/profile-sidebar';
 import PersonalData from './PersonalData/personaldata';
+import PayMentsFacilities from './PaymentFacilities/paymentfacilities';
 
 const ProfilePage: React.FC = () => {
   const [selectedSection, setSelectedSection] = useState('Datos Personales');
@@ -11,7 +12,7 @@ const ProfilePage: React.FC = () => {
       case 'Datos Personales':
         return <PersonalData />;
       case 'Pago e Instalaciones':
-        return <div>Contenido de Pago e Instalaciones</div>;
+        return <PayMentsFacilities/>;
       case 'Pedidos':
         return <div>Contenido de Pedidos</div>;
       case 'Lista de deseos':
