@@ -54,7 +54,7 @@ const Footer = () => {
               <p className="text-sm">123 Main Street, Anytown, USA</p>
             </div>
             <div className="flex items-center space-x-2 mb-2">
-              <Image src="/icons/phonecall.svg" alt="Teléfono" width={20} height={20} />
+              <Image src="/icons/phonecall.svg" alt="Teléfono" width={20} height={20}  />
               <p className="text-sm">+1 (555) 123-4567</p>
             </div>
             <div className="flex items-center space-x-2">

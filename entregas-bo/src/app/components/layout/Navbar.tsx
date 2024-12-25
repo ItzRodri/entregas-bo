@@ -26,6 +26,7 @@ const Navbar: React.FC = () => {
                     width={200}
                     height={200}
                     alt="hola"
+                    priority
                   ></Image>
                 </Link>
               </div>

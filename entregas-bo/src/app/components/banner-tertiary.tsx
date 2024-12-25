@@ -19,7 +19,6 @@ const HeroBannerSecondary: React.FC = () => {
           <Image
             src="/libros/Actividades-de-M1.png"
             alt="Libro 1"
-            layout="responsive"
             width={150}
             height={200}
             className="animate-float duration-700 delay-200"
@@ -29,7 +28,6 @@ const HeroBannerSecondary: React.FC = () => {
           <Image
             src="/libros/Actividades-de-M1.png"
             alt="Libro 2"
-            layout="responsive"
             width={150}
             height={200}
             className="animate-float duration-700 delay-200"
@@ -39,7 +37,6 @@ const HeroBannerSecondary: React.FC = () => {
           <Image
             src="/libros/Actividades-de-M1.png"
             alt="Libro 3"
-            layout="responsive"
             width={150}
             height={200}
             className="animate-float duration-700 delay-200"

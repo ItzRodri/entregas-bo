@@ -14,28 +14,31 @@ const HeroBannerPrimary: React.FC = () => {
   </div>
 
   {/* Imágenes del Producto */}
-  <div className="w-full md:w-1/2 flex justify-evenly items-center mt-6 md:mt-0">
-    <Image
-      src="/libros/Actividades-de-M1.png"
-      alt="Libro 1"
-      width={150}
-      height={200}
-      className=""
-    />
-    <Image
-      src="/libros/Actividades-de-M1.png"
-      alt="Libro 2"
-      width={150}
-      height={200}
-      className=""
-    />
-    <Image
-      src="/libros/Actividades-de-M1.png"
-      alt="Libro 3"
-      width={150}
-      height={200}
-      className=""
-    />
+  <div className="w-full md:w-1/2 flex justify-evenly items-center mt-6 md:mt-0 relative">
+        <div className="relative w-1/3">
+          <Image
+            src="/libros/Actividades-de-M1.png"
+            alt="Libro 1"
+            width={150}
+            height={200}
+          />
+        </div>
+        <div className="relative w-1/3">
+          <Image
+            src="/libros/Actividades-de-M1.png"
+            alt="Libro 2"
+            width={150}
+            height={200}
+          />
+        </div>
+        <div className="relative w-1/3">
+          <Image
+            src="/libros/Actividades-de-M1.png"
+            alt="Libro 3"
+            width={150}
+            height={200}
+          />
+        </div>
   </div>
 </div>
 

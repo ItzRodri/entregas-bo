@@ -68,9 +68,9 @@ const Blogs: React.FC = () => {
                 <Image
                   src={blog.image}
                   alt={blog.title}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
                   className="rounded-t-lg"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 />
               </div>
 
