@@ -1,40 +1,84 @@
-import CustomInput from "@/app/components/common/inputprops";
+import React, { useState } from 'react';
+import CustomInput from '@/app/components/common/inputprops';
 
-const PayMentsFacilities: React.FC = () => {
+const PaymentFacilities: React.FC = () => {
+  const [paymentData, setPaymentData] = useState({
+    card: '',
+    paypal: '',
+  });
+
   const handleEdit = (field: string) => {
-    console.log(`Editing ${field}`);
+    console.log(`Edit ${field}`);
   };
-  return (
-    <>
-      <div className="flex flex-col md:flex-row w-full h-full">
-        <div className="flex-grow p-6">
-          <h2 className="text-xl font-semibold text-gray-800">Tarjetas</h2>
-          <p className="text-sm text-gray-500 mb-6">
-            administrar métodos de pago
-          </p>
 
-          {/* Grilla responsiva */}
-          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-4">
-            <CustomInput
-              label="Nombre completo"
-              placeholder=""
-              value="Tarjetas de crédito o débito"
-              icon=""
-              editable={true}
-              onEdit={() => handleEdit("Tarjetas de crédito o débito")}
+  return (
+    <div className="container mx-auto p-4 md:p-8">
+      <h2 className="text-2xl font-semibold mb-6">Pago e Instalaciones</h2>
+      <div className="space-y-4">
+        <div className="flex items-center space-x-4">
+          <CustomInput
+            label=""
+            placeholder="Ingrese los datos de su tarjeta"
+            value={paymentData.card}
+            icon=""
+            editable={true}
+            onEdit={() => handleEdit("card")}
+          />
+          <div className="flex space-x-2">
+            <img
+              src="/icons/americanexpress.svg"
+              alt="American Express"
+              width={32}
+              height={32}
+              className=""
             />
-            <CustomInput
-              label="Nombre completo"
-              placeholder=""
-              value="PayPal"
-              icon=""
-              editable={true}
-              onEdit={() => handleEdit("PayPal")}
+            <img
+              src="/icons/mastercard.svg"
+              alt="MasterCard"
+              width={32}
+              height={32}
+              className=""
+            />
+            <img
+              src="/icons/visa.svg"
+              alt="Visa"
+              width={32}
+              height={32}
+              className=""
             />
           </div>
         </div>
+        <div className="flex items-center space-x-4">
+          <CustomInput
+            label=""
+            placeholder="Ingrese su cuenta de PayPal"
+            value={paymentData.paypal}
+            icon=""
+            editable={true}
+            onEdit={() => handleEdit("paypal")}
+          />
+          <div className="flex space-x-2">
+            <img
+              src="/icons/paypal.svg"
+              alt="PayPal"
+              width={32}
+              height={32}
+              className=""
+            />
+          </div>
+        </div>
+        <div className="mt-6">
+        <h3 className="text-lg font-medium text-gray-800">Pagos a plazos</h3>
+        <a
+          href="#"
+          className="text-blue-500 hover:text-blue-700 text-sm"
+        >
+          Administra tu cuota &rarr;
+        </a>
       </div>
-    </>
+      </div>
+    </div>
   );
 };
-export default PayMentsFacilities;
+
+export default PaymentFacilities;
