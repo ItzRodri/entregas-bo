@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import CustomInput from '@/app/components/common/inputprops';
+import PaymentModal from '@/app/components/common/modalpayprops';
 
 const PaymentFacilities: React.FC = () => {
+
+  const [isModalOpen, setModalOpen] = useState(false);
   const [paymentData, setPaymentData] = useState({
     card: '',
     paypal: '',
@@ -13,18 +16,20 @@ const PaymentFacilities: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4 md:p-8">
-      <h2 className="text-2xl font-semibold mb-6">Pago e Instalaciones</h2>
+      <h2 className="text-xl font-semibold text-gray-800">Tarjetas</h2>
+      <p className="text-sm text-gray-500 mb-6">administrar métodos de pago</p>
       <div className="space-y-4">
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center">
           <CustomInput
             label=""
-            placeholder="Ingrese los datos de su tarjeta"
+            placeholder="Tarjetas de crédito o débito"
             value={paymentData.card}
             icon=""
             editable={true}
-            onEdit={() => handleEdit("card")}
+            onEdit={() => setModalOpen(true)}
           />
-          <div className="flex space-x-2">
+          <PaymentModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+          <div className="flex">
             <img
               src="/icons/americanexpress.svg"
               alt="American Express"
@@ -48,16 +53,17 @@ const PaymentFacilities: React.FC = () => {
             />
           </div>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center">
           <CustomInput
             label=""
-            placeholder="Ingrese su cuenta de PayPal"
+            placeholder="PayPal"
             value={paymentData.paypal}
             icon=""
             editable={true}
-            onEdit={() => handleEdit("paypal")}
+            onEdit={() => setModalOpen(true)}
           />
-          <div className="flex space-x-2">
+          <PaymentModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+          <div className="flex">
             <img
               src="/icons/paypal.svg"
               alt="PayPal"
