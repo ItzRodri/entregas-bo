@@ -5,6 +5,8 @@ import PersonalData from "./PersonalData/personaldata";
 import PayMentsFacilities from "./PaymentFacilities/paymentfacilities";
 import Wishlist from "./Wish-List/wishlist";
 import Discount from "./Discounts/disconts";
+import Notification from "./Notification/notification";
+import ContactUs from "./contactus/contactus";
 
 const ProfilePage: React.FC = () => {
   const [selectedSection, setSelectedSection] = useState("Datos Personales");
@@ -24,9 +26,9 @@ const ProfilePage: React.FC = () => {
       case "Seguridad y acceso":
         return <div>Contenido de Seguridad y acceso</div>;
       case "Notificación":
-        return <div>Contenido de Notificación</div>;
+        return <Notification />;
       case "Contáctanos":
-        return <div>Contenido de Contáctanos</div>;
+        return <ContactUs />;
       case "Cerrar sesión":
         return <div>Contenido de Cerrar sesión</div>;
       default:
