@@ -49,7 +49,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       >
         <Image
           src={
-            product.isFavorite ? "/icons/heart-outline.svg" : "/icons/heart.svg"
+            product.isFavorite ? "/icons/heart.svg" : "/icons/heart-outline.svg"
           }
           alt="Favorito"
           width={20}
