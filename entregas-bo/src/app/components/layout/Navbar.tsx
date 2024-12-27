@@ -62,9 +62,11 @@ const Navbar: React.FC = () => {
                   Blog
                 </Link>
                 <Link
-                  href="/faq"
+                  href="/Sections/Faq"
                   className={`${
-                    pathname === "/faq" ? "bg-primary text-white" : "text-black"
+                    pathname === "/Sections/Faq"
+                      ? "bg-primary text-white"
+                      : "text-black"
                   } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Preguntas Frecuentes
@@ -140,6 +142,7 @@ const Navbar: React.FC = () => {
                 className={`${
                   pathname === "/" ? "bg-primary text-white" : "text-black"
                 } hover:bg-primary block hover:text-white rounded-lg p-2`}
+                onClick={toggleNavbar}
               >
                 Home
               </Link>
@@ -150,6 +153,7 @@ const Navbar: React.FC = () => {
                     ? "bg-primary text-white"
                     : "text-black"
                 } hover:bg-primary block hover:text-white rounded-lg p-2`}
+                onClick={toggleNavbar}
               >
                 Productos
               </Link>
@@ -158,14 +162,18 @@ const Navbar: React.FC = () => {
                 className={`${
                   pathname === "/blog" ? "bg-primary text-white" : "text-black"
                 } hover:bg-primary block hover:text-white rounded-lg p-2`}
+                onClick={toggleNavbar}
               >
                 Blog
               </Link>
               <Link
-                href="/faq"
+                href="/Sections/Faq"
                 className={`${
-                  pathname === "/faq" ? "bg-primary text-white" : "text-black"
+                  pathname === "/Sections/Faq"
+                    ? "bg-primary text-white"
+                    : "text-black"
                 } hover:bg-primary block hover:text-white rounded-lg p-2`}
+                onClick={toggleNavbar}
               >
                 Preguntas Frecuentes
               </Link>
@@ -176,8 +184,21 @@ const Navbar: React.FC = () => {
                     ? "bg-primary text-white"
                     : "text-black"
                 } hover:bg-primary block hover:text-white rounded-lg p-2`}
+                onClick={toggleNavbar}
               >
                 Contactanos
+              </Link>
+              <Link
+                href={isLoggedIn ? "/Sections/Profile" : "/Sections/Login"}
+                className={`${
+                  pathname ===
+                  (isLoggedIn ? "/Sections/Profile" : "/Sections/Login")
+                    ? "bg-primary text-white"
+                    : "text-black"
+                } hover:bg-primary block hover:text-white rounded-lg p-2`}
+                onClick={toggleNavbar}
+              >
+                {isLoggedIn ? "Profile" : "Logeate/Registrate"}
               </Link>
             </div>
           </div>
