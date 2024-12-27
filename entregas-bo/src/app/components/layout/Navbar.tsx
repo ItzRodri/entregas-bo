@@ -70,9 +70,9 @@ const Navbar: React.FC = () => {
                   Preguntas Frecuentes
                 </Link>
                 <Link
-                  href="/contactanos"
+                  href="/Sections/Contactus/"
                   className={`${
-                    pathname === "/contactanos"
+                    pathname === "/Sections/Contactus"
                       ? "bg-primary text-white"
                       : "text-black"
                   } hover:bg-primary hover:text-white rounded-lg p-2`}
@@ -185,6 +185,6 @@ const Navbar: React.FC = () => {
       </nav>
     </>
   );
-}
+};
 
 export default Navbar;

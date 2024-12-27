@@ -7,17 +7,30 @@ import {
   ProductList,
   Pagination,
 } from "@/app/components/products";
+import ProductDetail from "@/app/components/products/productdetail";
+// Importar el componente de detalles del producto
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  originalPrice?: number; // Precio original para calcular el descuento
+  discount?: number; // Porcentaje de descuento
+  imageUrl: string; // URL de la imagen del producto
+  rating?: number; // Puntuación del producto
+  isFavorite?: boolean; // Indica si el producto es favorito
+}
 
 const NewProductsPage: React.FC = () => {
   // Estado para filtros aplicados
   const [filters, setFilters] = useState<{ id: number; label: string }[]>([]);
-
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   // Estado para la página actual
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 10; // Número total de páginas
 
   // Lista de productos (datos simulados)
-  const [products, setProducts] = useState([
+  const [products, setProducts] = useState<Product[]>([
     {
       id: 1,
       name: "Producto 1",
@@ -233,6 +246,11 @@ const NewProductsPage: React.FC = () => {
     );
   };
 
+  // Manejar clic en el producto para mostrar detalles
+  const handleProductClick = (product: Product) => {
+    setSelectedProduct(product);
+  };
+
   // Estado y opciones para ordenamiento
   const [sortOption, setSortOption] = useState("price_asc");
   const sortOptions = [
@@ -250,53 +268,63 @@ const NewProductsPage: React.FC = () => {
   return (
     <div className="py-10 px-4 md:px-20 font-inter">
       <div className="container mx-auto flex flex-col gap-6">
-        {/* Barra de filtros aplicados */}
-        <AppliedFiltersBar
-          filters={filters}
-          onRemoveFilter={(id) =>
-            setFilters((prevFilters) =>
-              prevFilters.filter((filter) => filter.id !== id)
-            )
-          }
-          onClearFilters={handleClearAllFilters}
-        />
-
-        {/* Contenedor principal */}
-        <div className="flex flex-col md:flex-row gap-6">
-          {/* Panel lateral de filtros */}
-          <div className="w-full md:w-1/4">
-            <FilterPanel
-              filters={filterCategories}
-              onFilterChange={handleFilterChange}
-              onClearAll={handleClearAllFilters}
-              onPriceChange={handlePriceChange}
+        {selectedProduct ? (
+          <ProductDetail
+            product={selectedProduct}
+            onBack={() => setSelectedProduct(null)}
+          />
+        ) : (
+          <>
+            {/* Barra de filtros aplicados */}
+            <AppliedFiltersBar
+              filters={filters}
+              onRemoveFilter={(id) =>
+                setFilters((prevFilters) =>
+                  prevFilters.filter((filter) => filter.id !== id)
+                )
+              }
+              onClearFilters={handleClearAllFilters}
             />
-          </div>
 
-          {/* Contenedor para productos */}
-          <div className="w-full md:w-3/4">
-            {/* Barra de ordenamiento */}
-            <div className="flex justify-between items-center mb-4">
-              <SortOption
-                options={sortOptions}
-                selectedOption={sortOption}
-                onChange={setSortOption}
-              />
+            {/* Contenedor principal */}
+            <div className="flex flex-col md:flex-row gap-6">
+              {/* Panel lateral de filtros */}
+              <div className="w-full md:w-1/4">
+                <FilterPanel
+                  filters={filterCategories}
+                  onFilterChange={handleFilterChange}
+                  onClearAll={handleClearAllFilters}
+                  onPriceChange={handlePriceChange}
+                />
+              </div>
+
+              {/* Contenedor para productos */}
+              <div className="w-full md:w-3/4">
+                {/* Barra de ordenamiento */}
+                <div className="flex justify-between items-center mb-4">
+                  <SortOption
+                    options={sortOptions}
+                    selectedOption={sortOption}
+                    onChange={setSortOption}
+                  />
+                </div>
+
+                {/* Lista de productos */}
+                <ProductList
+                  products={products}
+                  onAddToCart={handleAddToCart}
+                  onToggleFavorite={handleToggleFavorite}
+                  onProductClick={handleProductClick}
+                />
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
+              </div>
             </div>
-
-            {/* Lista de productos */}
-            <ProductList
-              products={products}
-              onAddToCart={handleAddToCart}
-              onToggleFavorite={handleToggleFavorite}
-            />
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-            />
-          </div>
-        </div>
+          </>
+        )}
       </div>
     </div>
   );

@@ -15,12 +15,23 @@ interface ProductCardProps {
   };
   onAddToCart: (productId: number) => void; // Acción al añadir al carrito
   onToggleFavorite: (productId: number) => void; // Acción al marcar como favorito
+  onProductClick: (product: {
+    id: number;
+    name: string;
+    price: number;
+    originalPrice?: number;
+    discount?: number;
+    imageUrl: string;
+    rating?: number;
+    isFavorite?: boolean;
+  }) => void; // Acción al hacer clic en la imagen del producto
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
   product,
   onAddToCart,
   onToggleFavorite,
+  onProductClick,
 }) => {
   return (
     <div className="relative border p-4 rounded-lg shadow hover:shadow-md transition-all bg-white">
@@ -38,9 +49,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       >
         <Image
           src={
-            product.isFavorite
-              ? "/icons/heart-filled.svg"
-              : "/icons/heart-outline.svg"
+            product.isFavorite ? "/icons/heart-outline.svg" : "/icons/heart.svg"
           }
           alt="Favorito"
           width={20}
@@ -49,7 +58,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </button>
 
       {/* Imagen del producto */}
-      <div className="mb-4">
+      <div
+        className="mb-4 cursor-pointer"
+        onClick={() => onProductClick(product)}
+      >
         <Image
           src={product.imageUrl}
           alt={product.name}

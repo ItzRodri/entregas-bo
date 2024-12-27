@@ -16,12 +16,14 @@ interface ProductListProps {
   products: Product[]; // Lista de productos
   onAddToCart: (productId: number) => void; // Función para manejar la acción de añadir al carrito
   onToggleFavorite: (productId: number) => void; // Función para manejar la acción de marcar como favorito
+  onProductClick: (product: Product) => void; // Función para manejar la acción de clic en un producto
 }
 
 const ProductList: React.FC<ProductListProps> = ({
   products,
   onAddToCart,
   onToggleFavorite,
+  onProductClick,
 }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -31,6 +33,7 @@ const ProductList: React.FC<ProductListProps> = ({
           product={product} // Pasa el producto completo al componente
           onAddToCart={onAddToCart}
           onToggleFavorite={onToggleFavorite}
+          onProductClick={onProductClick} // Pasa la función onProductClick al componente
         />
       ))}
     </div>
