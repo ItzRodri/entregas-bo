@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 
 interface FilterOption {
   id: number;
@@ -27,7 +28,6 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
   const [priceRange, setPriceRange] = useState({ min: 0, max: 1000 }); // Estado para rango de precios
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]); // Control de categorías expandibles
 
-  // Maneja la expansión/colapso de categorías
   const toggleCategory = (category: string) => {
     setExpandedCategories((prev) =>
       prev.includes(category)
@@ -35,6 +35,11 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
         : [...prev, category]
     );
   };
+
+  // Verificar si hay filtros seleccionados
+  const hasSelectedFilters = filters.some((category) =>
+    category.options.some((option) => option.selected)
+  );
 
   // Actualiza el rango de precios y notifica el cambio
   const handlePriceChange = (min: number, max: number) => {
@@ -47,12 +52,14 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
       {/* Encabezado de filtros */}
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold">Filtros</h3>
-        <button
-          onClick={onClearAll}
-          className="text-blue-400 hover:text-blue-500 text-sm"
-        >
-          Borrar todo
-        </button>
+        {hasSelectedFilters && (
+          <button
+            onClick={onClearAll}
+            className="text-blue-400 hover:text-blue-500 text-sm"
+          >
+            Borrar todo
+          </button>
+        )}
       </div>
 
       {/* Categorías de filtros */}
@@ -60,17 +67,32 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
         <div key={filterCategory.category} className="mb-6">
           {/* Encabezado de categoría */}
           <h4
-            className="font-medium text-gray-700 mb-2 cursor-pointer flex justify-between items-center"
+            className="text-gray-700 mb-2 cursor-pointer flex justify-between items-center"
             onClick={() => toggleCategory(filterCategory.category)}
           >
             {filterCategory.category}
             <span>
-              {expandedCategories.includes(filterCategory.category) ? "▾" : "▸"}
+              <Image
+                src={
+                  expandedCategories.includes(filterCategory.category)
+                    ? "/icons/rowUp.svg"
+                    : "/icons/rowDown.svg"
+                }
+                alt="Toggle"
+                width={16}
+                height={16}
+              />
             </span>
           </h4>
 
-          {/* Opciones de categoría (expandibles) */}
-          {expandedCategories.includes(filterCategory.category) && (
+          {/* Opciones de categoría con animación */}
+          <div
+            className={`transition-all duration-300 overflow-hidden ${
+              expandedCategories.includes(filterCategory.category)
+                ? "max-h-96 opacity-100"
+                : "max-h-0 opacity-0"
+            }`}
+          >
             <div className="flex flex-col gap-2">
               {filterCategory.options.map((option) => (
                 <label key={option.id} className="flex items-center">
@@ -86,46 +108,39 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
                 </label>
               ))}
             </div>
-          )}
+          </div>
         </div>
       ))}
 
       {/* Rango de precios */}
       <div className="mb-6">
-        <h4 className="font-medium text-gray-700 mb-2">Precio</h4>
-        <div className="flex items-center gap-4">
+        <h4 className="text-gray-700 mb-2">Precio</h4>
+        <div className="flex sm:flex-row md:flex-col lg:flex-row items-center gap-2">
           <input
             type="number"
             value={priceRange.min}
             onChange={(e) =>
-              handlePriceChange(Number(e.target.value), priceRange.max)
+              setPriceRange((prev) => ({
+                ...prev,
+                min: Number(e.target.value),
+              }))
             }
-            className="border border-gray-300 rounded-lg p-2 w-16"
+            className="border border-gray-300 rounded-lg p-2 w-16 sm:w-16 md:w-full lg:w-8/12"
             placeholder="min."
           />
           <input
             type="number"
             value={priceRange.max}
             onChange={(e) =>
-              handlePriceChange(priceRange.min, Number(e.target.value))
+              setPriceRange((prev) => ({
+                ...prev,
+                max: Number(e.target.value),
+              }))
             }
-            className="border border-gray-300 rounded-lg p-2 w-16"
+            className="border border-gray-300 rounded-lg p-2 w-16 sm:w-16 md:w-full lg:w-8/12"
             placeholder="max."
           />
         </div>
-      </div>
-
-      {/* Botón de Descuento */}
-      <div className="mb-6 flex items-center justify-between">
-        <span className="font-medium text-gray-700">Descuento</span>
-        <label className="relative inline-flex items-center cursor-pointer">
-          <input
-            type="checkbox"
-            className="sr-only peer"
-            onChange={() => console.log("Descuento activado/desactivado")}
-          />
-          <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-blue-300 peer-checked:after:translate-x-5 peer-checked:after:border-white peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
-        </label>
       </div>
     </div>
   );

@@ -1,10 +1,122 @@
 "use client";
 import React, { useState } from "react";
-import { AppliedFiltersBar, SortOption, FilterPanel } from "@/app/components/products";
+import {
+  AppliedFiltersBar,
+  FilterPanel,
+  SortOption,
+  ProductList,
+  Pagination,
+} from "@/app/components/products";
 
 const NewProductsPage: React.FC = () => {
   // Estado para filtros aplicados
   const [filters, setFilters] = useState<{ id: number; label: string }[]>([]);
+
+  // Estado para la página actual
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 10; // Número total de páginas
+
+  // Lista de productos (datos simulados)
+  const [products, setProducts] = useState([
+    {
+      id: 1,
+      name: "Producto 1",
+      price: 450,
+      originalPrice: 500,
+      discount: 10,
+      imageUrl: "/libros/Actividades-de-M1.png",
+      rating: 4.9,
+      isFavorite: false,
+    },
+    {
+      id: 2,
+      name: "Producto 2",
+      price: 800,
+      imageUrl: "/libros/Actividades-de-M1.png",
+      rating: 4.7,
+      isFavorite: false,
+    },
+    {
+      id: 3,
+      name: "Producto 3",
+      price: 1020,
+      originalPrice: 1200,
+      discount: 15,
+      imageUrl: "/libros/Actividades-de-M1.png",
+      rating: 4.8,
+      isFavorite: true,
+    },
+    {
+      id: 4,
+      name: "Producto 4",
+      price: 600,
+      originalPrice: 700,
+      discount: 14,
+      imageUrl: "/libros/Actividades-de-M1.png",
+      rating: 4.5,
+      isFavorite: false,
+    },
+    {
+      id: 5,
+      name: "Producto 5",
+      price: 900,
+      originalPrice: 1000,
+      discount: 10,
+      imageUrl: "/libros/Actividades-de-M1.png",
+      rating: 4.6,
+      isFavorite: true,
+    },
+    {
+      id: 6,
+      name: "Producto 6",
+      price: 750,
+      originalPrice: 850,
+      discount: 12,
+      imageUrl: "/libros/Actividades-de-M1.png",
+      rating: 4.4,
+      isFavorite: false,
+    },
+    {
+      id: 7,
+      name: "Producto 7",
+      price: 1100,
+      originalPrice: 1200,
+      discount: 8,
+      imageUrl: "/libros/Actividades-de-M1.png",
+      rating: 4.7,
+      isFavorite: true,
+    },
+    {
+      id: 8,
+      name: "Producto 8",
+      price: 500,
+      originalPrice: 600,
+      discount: 16,
+      imageUrl: "/libros/Actividades-de-M1.png",
+      rating: 4.3,
+      isFavorite: false,
+    },
+    {
+      id: 9,
+      name: "Producto 9",
+      price: 650,
+      originalPrice: 750,
+      discount: 13,
+      imageUrl: "/libros/Actividades-de-M1.png",
+      rating: 4.5,
+      isFavorite: true,
+    },
+    {
+      id: 10,
+      name: "Producto 10",
+      price: 1200,
+      originalPrice: 1300,
+      discount: 7,
+      imageUrl: "/libros/Actividades-de-M1.png",
+      rating: 4.8,
+      isFavorite: false,
+    },
+  ]);
 
   // Estado para las categorías de filtros
   const [filterCategories, setFilterCategories] = useState([
@@ -105,6 +217,22 @@ const NewProductsPage: React.FC = () => {
     setPriceRange({ min, max });
   };
 
+  // Manejar acción de añadir al carrito
+  const handleAddToCart = (productId: number) => {
+    console.log(`Producto con ID ${productId} añadido al carrito`);
+  };
+
+  // Manejar acción de marcar/desmarcar como favorito
+  const handleToggleFavorite = (productId: number) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === productId
+          ? { ...product, isFavorite: !product.isFavorite }
+          : product
+      )
+    );
+  };
+
   // Estado y opciones para ordenamiento
   const [sortOption, setSortOption] = useState("price_asc");
   const sortOptions = [
@@ -113,6 +241,11 @@ const NewProductsPage: React.FC = () => {
     { value: "popularity", label: "Popularidad" },
     { value: "newest", label: "Nuevos lanzamientos" },
   ];
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Simular carga de datos
+  };
 
   return (
     <div className="py-10 px-4 md:px-20 font-inter">
@@ -151,21 +284,17 @@ const NewProductsPage: React.FC = () => {
               />
             </div>
 
-            {/* Lista de productos (placeholder) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="border p-4 rounded-lg shadow">
-                <h4 className="font-semibold">Producto 1</h4>
-                <p className="text-sm text-gray-500">$500</p>
-              </div>
-              <div className="border p-4 rounded-lg shadow">
-                <h4 className="font-semibold">Producto 2</h4>
-                <p className="text-sm text-gray-500">$800</p>
-              </div>
-              <div className="border p-4 rounded-lg shadow">
-                <h4 className="font-semibold">Producto 3</h4>
-                <p className="text-sm text-gray-500">$1,200</p>
-              </div>
-            </div>
+            {/* Lista de productos */}
+            <ProductList
+              products={products}
+              onAddToCart={handleAddToCart}
+              onToggleFavorite={handleToggleFavorite}
+            />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
           </div>
         </div>
       </div>
