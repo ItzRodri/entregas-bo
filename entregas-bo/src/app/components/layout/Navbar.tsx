@@ -92,6 +92,13 @@ const Navbar: React.FC = () => {
                 >
                   {isLoggedIn ? "Profile" : "Logeate/Registrate"}
                 </Link>
+                <Image
+                  src="/icons/search-normal.svg"
+                  alt="hola"
+                  width={20}
+                  height={20}
+                />
+                <Image src="/icons/bag.svg" alt="hola" width={20} height={20} />
               </div>
             </div>
             <div className="md:hidden flex items-center">
