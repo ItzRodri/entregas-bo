@@ -3,7 +3,7 @@ import { FC } from "react";
 
 interface CartProductItemProps {
   product: {
-    id: string;
+    id: number;
     name: string;
     description: string;
     price: number;
@@ -11,9 +11,11 @@ interface CartProductItemProps {
     image: string;
     color?: string;
     deliveryStatus: string;
+    discount?: number;
   };
-  onUpdateQuantity: (id: string, quantity: number) => void;
-  onRemove: (id: string) => void;
+  
+  onUpdateQuantity: (id: number, quantity: number) => void;
+  onRemove: (id: number) => void;
 }
 
 const CartProductItem: FC<CartProductItemProps> = ({
@@ -21,6 +23,7 @@ const CartProductItem: FC<CartProductItemProps> = ({
   onUpdateQuantity,
   onRemove,
 }) => {
+
   return (
     <div className="flex flex-col md:flex-row gap-4 p-4 border-b border-gray-200 last:border-b-0">
       {/* Imagen del producto */}

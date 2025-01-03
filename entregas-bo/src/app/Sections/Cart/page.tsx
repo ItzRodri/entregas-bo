@@ -1,27 +1,40 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   HeaderSteps,
-  ProductList,
   PaymentDetails,
   RecommendationSection,
 } from "@/app/components/shop";
 
-interface Product {
+// Interfaz de producto RecommendationSection
+interface ProductRecommend {
   id: number;
   name: string;
   price: number;
-  originalPrice?: number; // Precio original para calcular el descuento
-  discount?: number; // Porcentaje de descuento
-  imageUrl: string; // URL de la imagen del producto
-  rating?: number; // Puntuación del producto
-  isFavorite?: boolean; // Indica si el producto es favorito
+  originalPrice?: number;
+  discount?: number;
+  imageUrl: string;
+  rating?: number;
+  isFavorite?: boolean;
+}
+
+// Interfaz de producto ProductList
+interface ProductShop {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  quantity: number;
+  image: string;
+  color?: string;
+  deliveryStatus: string;
 }
 
 export default function CartPage() {
-  const products = [
+  // Lista de productos en el carrito
+  const [products, setProductsShop] = useState<ProductShop[]>([
     {
-      id: "1",
+      id: 1,
       name: "Libro 1",
       description: "Descripción del libro 1",
       price: 10.99,
@@ -30,7 +43,7 @@ export default function CartPage() {
       deliveryStatus: "En stock",
     },
     {
-      id: "2",
+      id: 2,
       name: "Libro 2",
       description: "Descripción del libro 2",
       price: 12.99,
@@ -39,7 +52,7 @@ export default function CartPage() {
       deliveryStatus: "En stock",
     },
     {
-      id: "3",
+      id: 3,
       name: "Libro 3",
       description: "Descripción del libro 3",
       price: 15.99,
@@ -48,7 +61,7 @@ export default function CartPage() {
       deliveryStatus: "En stock",
     },
     {
-      id: "4",
+      id: 4,
       name: "Libro 4",
       description: "Descripción del libro 4",
       price: 9.99,
@@ -56,10 +69,10 @@ export default function CartPage() {
       image: "/libros/Actividades-de-M1.png",
       deliveryStatus: "En stock",
     },
-  ];
+  ]);
 
-  // Lista de productos (datos simulados)
-  const [productsRecommend, setProducts] = useState<Product[]>([
+  // Lista de productos recomendados
+  const [productsRecommend, setProducts] = useState<ProductRecommend[]>([
     {
       id: 1,
       name: "Producto 1",
@@ -160,41 +173,18 @@ export default function CartPage() {
     },
   ]);
 
-  
-
   return (
     <main className="py-10 px-4 md:px-20 font-inter">
       <div className="container mx-auto flex flex-col gap-6">
         <HeaderSteps currentStep="carrito" />
-        <div className="flex-grow grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="md:col-span-2">
-            <ProductList products={products} />
-          </div>
-          <div>
-            <PaymentDetails
-              subtotal={products.reduce(
-                (acc, product) => acc + product.price * product.quantity,
-                0
-              )}
-              discount={0}
-              shipping={5.99}
-              total={
-                products.reduce(
-                  (acc, product) => acc + product.price * product.quantity,
-                  0
-                ) + 5.99
-              }
-            />
-          </div>
-        </div>
-
+        <PaymentDetails products={products} />
         <div>
-          <RecommendationSection 
-            products={productsRecommend} 
+          <RecommendationSection
+            products={productsRecommend}
             onAddToCart={(productId: number) => {
               // Implement your add to cart logic here
               console.log(`Product ${productId} added to cart`);
-            }} 
+            }}
           />
         </div>
       </div>
