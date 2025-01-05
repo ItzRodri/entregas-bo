@@ -1,7 +1,8 @@
 "use client";
 import { FC, useState } from "react";
-import CustomButton from "../common/button";
+import CustomButton from "../../common/button";
 import CartProductItem from "./ProductItem";
+import { useRouter } from 'next/navigation';
 
 interface Product {
   id: number;
@@ -51,6 +52,13 @@ const PaymentDetails: FC<PaymentDetail> = ({ products }) => {
   const shipping = 5.99; // Ejemplo de costo de envío
   const total = subtotal - discount + shipping;
 
+  const router = useRouter();
+
+  const handleProceedToReview = () => {
+    router.push('../../../Sections/Cart/review');
+  };
+
+
   return (
     <div className="flex flex-col md:flex-row justify-between gap-10 bg-white rounded-lg shadow-sm p-6">
       {/* Columna de productos (lado izquierdo) */}
@@ -69,7 +77,7 @@ const PaymentDetails: FC<PaymentDetail> = ({ products }) => {
       </div>
 
       {/* Columna de detalles del pago (lado derecho) */}
-      <div className="w-full md:w-1/3 self-start bg-gray-50 p-6 rounded-lg shadow">
+      <div className="w-full md:w-1/3 self-start bg-white p-6 rounded-lg shadow">
         <h2 className="text-2xl font-medium mb-6">Detalles del pago</h2>
         {/* Detalles de costos */}
         <div className="space-y-4">
@@ -103,9 +111,7 @@ const PaymentDetails: FC<PaymentDetail> = ({ products }) => {
             text="Continuar al pago"
             variant="primary"
             size="medium"
-            onClick={() => {
-              // Lógica para continuar al pago
-            }}
+            onClick={handleProceedToReview}
           />
         </div>
       </div>
