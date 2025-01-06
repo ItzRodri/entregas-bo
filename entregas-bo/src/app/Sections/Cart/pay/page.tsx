@@ -5,6 +5,7 @@ import UserInfo from "@/app/components/shop/revisar/userinfo";
 import ShippingMethod from "@/app/components/shop/revisar/shippingmethod";
 import OrderSummary from "@/app/components/shop/revisar/ordersummary";
 import { useRouter } from "next/navigation";
+import PaymentComponent from "@/app/components/shop/pago/payment";
 
 interface ReviewPageProps {
   user: {
@@ -65,47 +66,43 @@ export default function ReviewPage() {
   };
 
   const handleContinue = () => {
-    router.push("../../../Sections/Cart/pay");
+    console.log("Continuar Pagando");
   };
 
   const handleBackToCart = () => {
-    router.push("../../../Sections/Cart/buy");
+    router.push("../../../Sections/Cart/review");
   };
 
   return (
     <main className="py-10 px-4 md:px-28 font-inter">
       <div className="container mx-auto flex flex-col gap-6">
-        <HeaderSteps currentStep="revisar" />
-        <div className="flex flex-col md:flex-row gap-6">
+        <HeaderSteps currentStep="pago" />
+        <div className="flex flex-col lg:flex-row gap-6">
           <div className="flex-1 flex flex-col gap-6">
             <div className="rounded-lg bg-white shadow p-6">
-              <UserInfo />
-              <ShippingMethod
-                selectedMethod={shippingMethod}
-                onMethodChange={setShippingMethod}
-              />
+              <PaymentComponent />
             </div>
           </div>
           <div className="w-full lg:w-[380px]">
-              <div className="sticky top-6">
-                <OrderSummary
-                  products={products}
-                  subtotal={519.52}
-                  discount={111.87}
-                  shippingCost={22.5}
-                  total={543.02}
-                  text="Seguir pagando"
-                  onApplyDiscount={handleApplyDiscount}
-                  onContinue={handleContinue}
-                />
-              </div>
+            <div className="sticky top-6">
+              <OrderSummary
+                products={products}
+                subtotal={519.52}
+                discount={111.87}
+                shippingCost={22.5}
+                total={543.02}
+                text= "Finalizar Pago"
+                onApplyDiscount={handleApplyDiscount}
+                onContinue={handleContinue}
+              />
             </div>
+          </div>
         </div>
         <span
           onClick={handleBackToCart}
           className="text-blue-500 hover:text-blue-600 cursor-pointer mt-6 block"
         >
-          Regresar al carrito
+          Volver al checkout
         </span>
       </div>
     </main>

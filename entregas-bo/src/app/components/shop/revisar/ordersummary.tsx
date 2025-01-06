@@ -15,6 +15,7 @@ interface OrderSummaryProps {
   discountCode?: string;
   onApplyDiscount: (code: string) => void;
   onContinue: () => void;
+  text: string;
   subtotal: number;
   discount: number;
   shippingCost: number;
@@ -26,6 +27,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
   discountCode = "",
   onApplyDiscount,
   onContinue,
+  text,
   subtotal,
   discount,
   shippingCost,
@@ -105,7 +107,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
       {/* Botón de continuar */}
       <div className="mt-6">
         <CustomButton
-          text="Seguir pagando"
+          text={text}
           variant="primary"
           size="large"
           className="w-full"
