@@ -18,7 +18,10 @@ interface Product {
   discount?: number; // Porcentaje de descuento
   imageUrl: string; // URL de la imagen del producto
   rating?: number; // Puntuación del producto
-  isFavorite?: boolean; // Indica si el producto es favorito
+  isFavorite?: boolean;
+  description: {
+    [key: string]: string; // JSON de descripción
+  };// Indica si el producto es favorito
 }
 
 const NewProductsPage: React.FC = () => {
@@ -40,6 +43,14 @@ const NewProductsPage: React.FC = () => {
       imageUrl: "/libros/Actividades-de-M1.png",
       rating: 4.9,
       isFavorite: false,
+      description: {
+        "Pantalla": "Pantalla retroiluminada LED de 13,3 pulgadas (diagonal) con tecnología IPS.",
+        "Gráficos": "Apple 10-core GPU.",
+        "Procesador": "Chip M2 de Apple.",
+        "En la caja": "67W Cargador de pared USB-C, Cable de carga USB-C (2 m).",
+        "Altura": "0.61 inch (1.56 cm)",
+        "Anchura": "11.97 pulgadas (30.41 cm)"
+      }
     },
     {
       id: 2,
@@ -48,6 +59,14 @@ const NewProductsPage: React.FC = () => {
       imageUrl: "/libros/Actividades-de-M1.png",
       rating: 4.7,
       isFavorite: false,
+      description: {
+        "Pantalla": "Pantalla retroiluminada LED de 13,3 pulgadas (diagonal) con tecnología IPS.",
+        "Gráficos": "Apple 10-core GPU.",
+        "Procesador": "Chip M2 de Apple.",
+        "En la caja": "67W Cargador de pared USB-C, Cable de carga USB-C (2 m).",
+        "Altura": "0.61 inch (1.56 cm)",
+        "Anchura": "11.97 pulgadas (30.41 cm)"
+      }
     },
     {
       id: 3,
@@ -58,6 +77,14 @@ const NewProductsPage: React.FC = () => {
       imageUrl: "/libros/Actividades-de-M1.png",
       rating: 4.8,
       isFavorite: true,
+      description: {
+        "Pantalla": "Pantalla retroiluminada LED de 13,3 pulgadas (diagonal) con tecnología IPS.",
+        "Gráficos": "Apple 10-core GPU.",
+        "Procesador": "Chip M2 de Apple.",
+        "En la caja": "67W Cargador de pared USB-C, Cable de carga USB-C (2 m).",
+        "Altura": "0.61 inch (1.56 cm)",
+        "Anchura": "11.97 pulgadas (30.41 cm)"
+      }
     },
     {
       id: 4,
@@ -68,6 +95,14 @@ const NewProductsPage: React.FC = () => {
       imageUrl: "/libros/Actividades-de-M1.png",
       rating: 4.5,
       isFavorite: false,
+      description: {
+        "Pantalla": "Pantalla retroiluminada LED de 13,3 pulgadas (diagonal) con tecnología IPS.",
+        "Gráficos": "Apple 10-core GPU.",
+        "Procesador": "Chip M2 de Apple.",
+        "En la caja": "67W Cargador de pared USB-C, Cable de carga USB-C (2 m).",
+        "Altura": "0.61 inch (1.56 cm)",
+        "Anchura": "11.97 pulgadas (30.41 cm)"
+      }
     },
     {
       id: 5,
@@ -78,6 +113,14 @@ const NewProductsPage: React.FC = () => {
       imageUrl: "/libros/Actividades-de-M1.png",
       rating: 4.6,
       isFavorite: true,
+      description: {
+        "Pantalla": "Pantalla retroiluminada LED de 13,3 pulgadas (diagonal) con tecnología IPS.",
+        "Gráficos": "Apple 10-core GPU.",
+        "Procesador": "Chip M2 de Apple.",
+        "En la caja": "67W Cargador de pared USB-C, Cable de carga USB-C (2 m).",
+        "Altura": "0.61 inch (1.56 cm)",
+        "Anchura": "11.97 pulgadas (30.41 cm)"
+      }
     },
     {
       id: 6,
@@ -88,6 +131,14 @@ const NewProductsPage: React.FC = () => {
       imageUrl: "/libros/Actividades-de-M1.png",
       rating: 4.4,
       isFavorite: false,
+      description: {
+        "Pantalla": "Pantalla retroiluminada LED de 13,3 pulgadas (diagonal) con tecnología IPS.",
+        "Gráficos": "Apple 10-core GPU.",
+        "Procesador": "Chip M2 de Apple.",
+        "En la caja": "67W Cargador de pared USB-C, Cable de carga USB-C (2 m).",
+        "Altura": "0.61 inch (1.56 cm)",
+        "Anchura": "11.97 pulgadas (30.41 cm)"
+      }
     },
     {
       id: 7,
@@ -98,6 +149,14 @@ const NewProductsPage: React.FC = () => {
       imageUrl: "/libros/Actividades-de-M1.png",
       rating: 4.7,
       isFavorite: true,
+      description: {
+        "Pantalla": "Pantalla retroiluminada LED de 13,3 pulgadas (diagonal) con tecnología IPS.",
+        "Gráficos": "Apple 10-core GPU.",
+        "Procesador": "Chip M2 de Apple.",
+        "En la caja": "67W Cargador de pared USB-C, Cable de carga USB-C (2 m).",
+        "Altura": "0.61 inch (1.56 cm)",
+        "Anchura": "11.97 pulgadas (30.41 cm)"
+      }
     },
     {
       id: 8,
@@ -107,7 +166,14 @@ const NewProductsPage: React.FC = () => {
       discount: 16,
       imageUrl: "/libros/Actividades-de-M1.png",
       rating: 4.3,
-      isFavorite: false,
+      isFavorite: false,  description: {
+        "Pantalla": "Pantalla retroiluminada LED de 13,3 pulgadas (diagonal) con tecnología IPS.",
+        "Gráficos": "Apple 10-core GPU.",
+        "Procesador": "Chip M2 de Apple.",
+        "En la caja": "67W Cargador de pared USB-C, Cable de carga USB-C (2 m).",
+        "Altura": "0.61 inch (1.56 cm)",
+        "Anchura": "11.97 pulgadas (30.41 cm)"
+      }
     },
     {
       id: 9,
@@ -118,6 +184,14 @@ const NewProductsPage: React.FC = () => {
       imageUrl: "/libros/Actividades-de-M1.png",
       rating: 4.5,
       isFavorite: true,
+      description: {
+        "Pantalla": "Pantalla retroiluminada LED de 13,3 pulgadas (diagonal) con tecnología IPS.",
+        "Gráficos": "Apple 10-core GPU.",
+        "Procesador": "Chip M2 de Apple.",
+        "En la caja": "67W Cargador de pared USB-C, Cable de carga USB-C (2 m).",
+        "Altura": "0.61 inch (1.56 cm)",
+        "Anchura": "11.97 pulgadas (30.41 cm)"
+      }
     },
     {
       id: 10,
@@ -128,6 +202,14 @@ const NewProductsPage: React.FC = () => {
       imageUrl: "/libros/Actividades-de-M1.png",
       rating: 4.8,
       isFavorite: false,
+      description: {
+        "Pantalla": "Pantalla retroiluminada LED de 13,3 pulgadas (diagonal) con tecnología IPS.",
+        "Gráficos": "Apple 10-core GPU.",
+        "Procesador": "Chip M2 de Apple.",
+        "En la caja": "67W Cargador de pared USB-C, Cable de carga USB-C (2 m).",
+        "Altura": "0.61 inch (1.56 cm)",
+        "Anchura": "11.97 pulgadas (30.41 cm)"
+      }
     },
   ]);
 
