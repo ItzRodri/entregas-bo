@@ -1,9 +1,24 @@
 "use client";
 import CustomInput from "@/app/components/common/inputprops";
 import { useState } from "react";
+import MapAddressModal from "../../common/modaladress";
+import UserDetailsModal from "../../common/modaluserdetails";
 
 export default function UserInfo() {
-  const [showEditModal, setShowEditModal] = useState(false);
+  const [showMapModal, setShowMapModal] = useState(false);
+  const [showUserDetailsModal, setShowUserDetailsModal] = useState(false);
+  const [userAddress, setUserAddress] = useState("HubSpot, 25 First Street, Cambridge MA 02141, Estados Unidos");
+  const [userName, setUserName] = useState("Jimmy Smith");
+
+  const handleAddressConfirm = (address: string) => {
+    setUserAddress(address);
+    setShowMapModal(false);
+  };
+
+  const handleUserDetailsSubmit = (formData: any) => {
+    setUserName(formData.fullName);
+    setShowUserDetailsModal(false);
+  };
 
   return (
     <div>
@@ -12,10 +27,10 @@ export default function UserInfo() {
         <CustomInput
           label="Nombre completo"
           placeholder="Nombre completo"
-          value="Jimmy Smith"
+          value={userName}
           icon=""
           editable={true}
-          onEdit={() => setShowEditModal(true)}
+          onEdit={() => setShowUserDetailsModal(true)}
         />
       </div>
 
@@ -24,13 +39,26 @@ export default function UserInfo() {
         <CustomInput
           label="Dirección"
           placeholder="Dirección de envío"
-          value="HubSpot, 25 First Street, Cambridge MA 02141, Estados Unidos"
+          value={userAddress}
           icon=""
           editable={true}
-          onEdit={() => setShowEditModal(true)}
+          onEdit={() => setShowMapModal(true)}
         />
       </div>
-      {/* Usar tu EditableModal existente */}
+
+      {/* Modal del Mapa */}
+      <MapAddressModal
+        isOpen={showMapModal}
+        onClose={() => setShowMapModal(false)}
+        onConfirm={handleAddressConfirm}
+      />
+
+      {/* Modal de Detalles del Usuario */}
+      <UserDetailsModal
+        isOpen={showUserDetailsModal}
+        onClose={() => setShowUserDetailsModal(false)}
+        onSubmit={handleUserDetailsSubmit}
+      />
     </div>
   );
 }
