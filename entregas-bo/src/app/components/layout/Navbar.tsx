@@ -29,6 +29,22 @@ const Navbar: React.FC = () => {
                     priority
                   ></Image>
                 </Link>
+                
+              </div>
+            </div>
+            <div className="relative flex items-center">
+              <input
+                type="text"
+                placeholder="Buscar en eBay"
+                className="pl-10 pr-4 py-2 border w-full border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+              />
+              <div className="absolute left-3">
+                <Image
+                  src="/icons/search-normal.svg"
+                  alt="Buscar"
+                  width={20}
+                  height={20}
+                />
               </div>
             </div>
             <div className="hidden md:block">
@@ -50,16 +66,6 @@ const Navbar: React.FC = () => {
                   } hover:bg-primary hover:text-white rounded-lg p-2`}
                 >
                   Productos
-                </Link>
-                <Link
-                  href="/blog"
-                  className={`${
-                    pathname === "/blog"
-                      ? "bg-primary text-white"
-                      : "text-black"
-                  } hover:bg-primary hover:text-white rounded-lg p-2`}
-                >
-                  Blog
                 </Link>
                 <Link
                   href="/Sections/Faq"
@@ -92,12 +98,6 @@ const Navbar: React.FC = () => {
                 >
                   {isLoggedIn ? "Profile" : "Logeate/Registrate"}
                 </Link>
-                <Image
-                  src="/icons/search-normal.svg"
-                  alt="hola"
-                  width={20}
-                  height={20}
-                />
                 <Image src="/icons/bag.svg" alt="hola" width={20} height={20} />
               </div>
             </div>
@@ -163,15 +163,6 @@ const Navbar: React.FC = () => {
                 onClick={toggleNavbar}
               >
                 Productos
-              </Link>
-              <Link
-                href="/blog"
-                className={`${
-                  pathname === "/blog" ? "bg-primary text-white" : "text-black"
-                } hover:bg-primary block hover:text-white rounded-lg p-2`}
-                onClick={toggleNavbar}
-              >
-                Blog
               </Link>
               <Link
                 href="/Sections/Faq"
